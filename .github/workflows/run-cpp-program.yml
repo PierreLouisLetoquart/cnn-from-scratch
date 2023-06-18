@@ -1,0 +1,43 @@
+name: Build, Test, and Run C++ Program
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - develop
+      - feature/*
+      - hotfix/*
+      - release/*
+      - support/*
+      - bugfix/*
+      - refactor/*
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Clean
+        run: make clean
+
+      - name: Build C++ program
+        run: make
+
+      - name: Run C++ program
+        run: ./main
+
+      - name: Run tests
+        run: |
+          # Ajoutez ici les commandes pour exécuter vos tests automatisés
+
+      - name: Static code analysis
+        run: |
+          # Ajoutez ici les commandes pour exécuter des outils d'analyse statique (ex: cppcheck, clang-tidy)

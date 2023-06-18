@@ -1,0 +1,20 @@
+# Fichiers objets
+obj/
+*.o
+
+# Fichiers binaires ou exécutables
+main
+program
+
+# Fichiers temporaires ou de sauvegarde
+*~
+*.swp
+
+# Fichiers de configuration spécifiques à l'environnement de développement
+.vscode/
+.idea/
+.clang-format
+
+# Fichiers de dépendances générés par les outils de construction
+CMakeLists.txt.user
+compile_commands.json
