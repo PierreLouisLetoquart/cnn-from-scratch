@@ -1,17 +1,25 @@
 #include <iostream>
-#include "user.h"
+#include "utils.h"
 
-int main() {
-    // Création des objets User
-    User user1("Alice", 25);
-    User user2("Bob", 30);
+int main()
+{
+    std::string filepath = "data/basic_csv.csv";
+    try
+    {
+        CSVData data = read_csv(filepath);
 
-    // Utilisation des méthodes
-    user1.displayInfo();
-    user1.greet();
-
-    user2.displayInfo();
-    user2.greet();
-
+        for (auto &row : data)
+        {
+            for (auto &col : row)
+            {
+                std::cout << col << " ";
+            }
+            std::cout << std::endl;
+        }
+    }
+    catch (const std::runtime_error &ex)
+    {
+        std::cout << "Error: " << ex.what() << std::endl;
+    }
     return 0;
 }
