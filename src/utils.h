@@ -8,8 +8,8 @@
 #include <vector>
 #include <stdexcept>
 
-using CSVData = std::vector<std::vector<std::string>>;
+using CSVData = std::vector<std::vector<int64_t>>;
 
-CSVData read_csv(std::string &_filepath) throw(std::runtime_error);
+CSVData read_csv(const std::string &_filepath, char _separator = ',') throw(std::runtime_error);
 
 #endif // UTILS_H

@@ -1,18 +1,21 @@
 #include <iostream>
+#include <string>
 #include "utils.h"
 
 int main()
 {
-    std::string filepath = "data/basic_csv.csv";
+    std::string filepath = "./data/basic_csv.csv";
+
     try
     {
         CSVData data = read_csv(filepath);
 
-        for (auto &row : data)
+        // Print the parsed CSV data
+        for (const auto &row : data)
         {
-            for (auto &col : row)
+            for (const auto &cell : row)
             {
-                std::cout << col << " ";
+                std::cout << cell << " ";
             }
             std::cout << std::endl;
         }
@@ -21,5 +24,6 @@ int main()
     {
         std::cout << "Error: " << ex.what() << std::endl;
     }
+
     return 0;
 }
